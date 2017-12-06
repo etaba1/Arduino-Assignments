@@ -1,5 +1,11 @@
-/* SimpleToggle_PB_LED  AYESHA KHAN*/
+///Ayesha Khan 
 
+//25/10/17
+
+
+ /* SimpleToggle_PB_LED  AYESHA KHAN*/
+ #define debounce 50
+ unsigned long time = 0;
 const byte LEDpin = 3;
 const byte SWITCHpin = 2;
 
@@ -26,12 +32,12 @@ SWITCHstate = digitalRead(SWITCHpin);
 
 if (SWITCHstate != lastSWITCHstate)
 {
-int time = millis(); ///Record time  
+ time = millis(); ///Record time  
 }
 
-int t = millis() - time;
-if (t > 20)
-{
+if ((millis() - time) > debounce){
+//int t = millis() - time;
+//if (
   dbstate = SWITCHstate;
 }
 
@@ -50,7 +56,6 @@ lastSWITCHstate = SWITCHstate;
  
  
 }
-
 
 
 
